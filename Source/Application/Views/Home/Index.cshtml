@@ -1,0 +1,26 @@
+﻿@model HomeViewModel
+<div class="card mb-3">
+	<div class="card-header">
+		<h1 class="h4 m-0 p-0">HttpClient-Lab</h1>
+	</div>
+	<div class="card-body">
+		<p>You can find url's to sites with bad tls-certificates here: <a href="https://badssl.com/">https://badssl.com/</a></p>
+		<partial for="Form" name="Form" />
+		@if(Model.Exception != null)
+		{
+			<div class="alert alert-danger">
+				@Model.Exception
+			</div>
+		}
+		else if(Model.Content != null)
+		{
+			<div class="alert alert-success">
+				<pre>
+					<code>
+						@Model.Content
+					</code>
+				</pre>
+			</div>
+		}
+	</div>
+</div>
